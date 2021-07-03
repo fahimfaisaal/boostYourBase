@@ -24,17 +24,32 @@ public class SortingAlgo {
 		bubbleSort(array, i + 1, 0, len);
 	}
 
-	public static void bubbleSort(int [] array) {
-		int len = array.length;
-
-		for (int i = 0; i < len - 1; i++) {
-			for (int j = 0; j < len - i - 1; j++) {
-				if (array[j] > array[j + 1]) {
-					int swap = array[j];
-					array[j] = array[j + 1];
-					array[j + 1] = swap;
-				}
-			}
+	private static int [] select(int [] arr, int j, int len, int max, int index) {
+		if (j == len) {
+			return new int[] {max, index};
 		}
+
+		if (max < arr[j]) {
+			max = arr[j];
+			index = j;
+		}
+
+		return select(arr, j + 1, len, max, index);
+	}
+
+	public static int [] selectionSort(int [] arr, int i, int len) {
+		if (i == len) {
+			return arr;
+		}
+
+    int [] selection = select(arr, 0, len - i, arr[0], 0);
+
+		if (selection[0] != arr[len - i - 1]) {
+			int swap = arr[selection[1]];
+			arr[selection[1]] = arr[len - i - 1];
+			arr[len - i - 1] = swap;
+		}
+
+		return selectionSort(arr, i + 1, len);
 	}
 }
