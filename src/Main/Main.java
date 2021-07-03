@@ -1,7 +1,7 @@
 package Main;
 import DSA.*;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
 
@@ -24,8 +24,16 @@ public class Main {
         System.out.println("Unsorted array: " + Arrays.toString(array));
 
         // bubble sort - complexity O(n^2)
-        SortingAlgo.bubbleSort(array, 0, 0, array.length);
+        // SortingAlgo.bubbleSort(array, 0, 0, array.length);
 
-        System.out.println("(Bubble sort) Sorted array: " + Arrays.toString(array));
+        // System.out.println("(Bubble sort) Sorted array: " + Arrays.toString(array));
+
+        // selection sort - complexity O(n^2)
+        System.out.println(
+            "(Selection sort) Sorted array: " + Arrays.toString(
+            SortingAlgo.selectionSort(array, 0, array.length)
+            )
+        );
+
     }
 }
