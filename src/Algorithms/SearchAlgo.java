@@ -1,4 +1,4 @@
-package DSA;
+package Algorithms;
 
 public class SearchAlgo {
 	private static int lSearch(int [] array, int value, int index) {
